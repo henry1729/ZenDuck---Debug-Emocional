@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZenDuck - Debug Emocional</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="pato.png">
+</head>
+<body>
+    <div class="bubbles">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <header>
+        <div class="logo-area">
+            <img src="pato.png" alt="Mascote ZenDuck" class="pato-img">
+            <div class="espuma-base"></div>
+        </div>
+        <h1>ZenDuck</h1>
+        <p>Limpe o cache. Flutue sobre o caos.</p>
+    </header>
+
+    <main>
+        <section class="search-container">
+            <div class="search-box">
+                <input type="text" id="campo-pesquisa" placeholder="O que está pesando na sua RAM?">
+                <button onclick="pesquisar('topo')">🫧 Lavar</button>
+            </div>
+            
+            <div class="sugestoes">
+                <span class="tag-sugestao" role="button" tabindex="0" onclick="buscarAtalho('ansiedade', 'topo')">😰 Ansiedade</span>
+                <span class="tag-sugestao" role="button" tabindex="0" onclick="buscarAtalho('foco', 'topo')">🧠 Foco</span>
+                <span class="tag-sugestao" role="button" tabindex="0" onclick="buscarAtalho('burnout', 'topo')">🔥 Burnout</span>
+                <span class="tag-sugestao" role="button" tabindex="0" onclick="buscarAtalho('sono', 'topo')">😴 Sono</span>
+            </div>
+        </section>
+
+        <section id="resultado-topo" class="resultados"></section>
+
+        <section class="emergencia-container">
+            <h2 class="titulo-secao">🩹 Primeiros Socorros</h2>
+            <div class="cards-emergencia">
+                <div class="card-sos" onclick="buscarAtalho('4-7-8', 'baixo')">
+                    <div class="emoji-sos">🌬️</div>
+                    <h3>Técnica 4-7-8</h3>
+                    <p>Mente acelerada? Use este script de respiração para "resfriar" o sistema.</p>
+                </div>
+                
+                <div class="card-sos" onclick="buscarAtalho('camarao', 'baixo')">
+                    <div class="emoji-sos">🦐</div>
+                    <h3>Modo Camarão?</h3>
+                    <p>Sua postura está errada agora. Clique para ver o alongamento dev.</p>
+                </div>
+                
+                <div class="card-sos" onclick="buscarAtalho('20-20-20', 'baixo')">
+                    <div class="emoji-sos">👀</div>
+                    <h3>Regra 20-20-20</h3>
+                    <p>Olhos cansados de tela? Salve sua visão com esse hack simples.</p>
+                </div>
+
+                <div class="card-sos" onclick="buscarAtalho('water', 'baixo')">
+                    <div class="emoji-sos">💧</div>
+                    <h3>Water Cooling</h3>
+                    <p>Fluido baixo causa lentidão. Reabasteça seu sistema agora.</p>
+                </div>
+
+                <div class="card-sos" onclick="buscarAtalho('sensores', 'baixo')">
+                    <div class="emoji-sos">📡</div>
+                    <h3>Check de Sensores</h3>
+                    <p>Perdendo a conexão com a realidade? Use o protocolo 5-4-3-2-1.</p>
+                </div>
+
+                <div class="card-sos" onclick="buscarAtalho('ping', 'baixo')">
+                    <div class="emoji-sos">📞</div>
+                    <h3>Pingar Humano</h3>
+                    <p>Precisa de suporte externo? Conecte-se com sua rede ou CVV.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="resultado-baixo" class="resultados"></section>
+        
+        <section class="sobre-container">
+            <div class="card-sobre">
+                <div class="icone-sobre">🦆</div>
+                <h3>Por que um Pato?</h3>
+                <p>
+                    Na programação, existe uma técnica lendária chamada <strong>"Rubber Duck Debugging"</strong>. 
+                    Quando um código não funciona, explicamos o problema linha por linha para um pato de borracha.
+                    <br><br>
+                    O <strong>ZenDuck</strong> faz o mesmo, mas para a sua mente. Ele não substitui um psicólogo, 
+                    mas ajuda a "debugar" o estresse, limpar o cache mental e encontrar a solução que já estava em você.
+                </p>
+            </div>
+        </section>
+
+        <section class="fontes-container">
+    <p class="titulo-fontes">Baseado em ciência, não em "achismo".</p>
+    <div class="lista-fontes">
+        <span>🌐 <a href="https://www.paho.org/pt/brasil" target="_blank">OMS/OPAS</a></span> •
+        <span>⚕️ <a href="https://www.health.harvard.edu/" target="_blank">Harvard Health</a></span> •
+        <span>🏥 <a href="https://www.mayoclinic.org/" target="_blank">Mayo Clinic</a></span> •
+        <span>🛋️ <a href="https://www.psicologosberrini.com.br/" target="_blank">Psicólogos Berrini</a></span>
+    </div>
+</section>
+
+        <section class="manifesto-container">
+            <div class="manifesto-box">
+                <h2>Manutenção Preventiva do seu S.O. Interno</h2>
+                <p class="frase-impacto">
+                    O ZenDuck é o primeiro <strong>debugador emocional</strong> feito para devs.
+                </p>
+                <p class="texto-missao">
+                    Saúde mental não é luxo, nem "soft skill". É requisito de sistema. 
+                    Nós existimos para te lembrar que você não é uma CPU: você pode pausar, 
+                    reiniciar e não precisa processar tudo agora.
+                </p>
+                <div class="selo-dev">
+                    🦆 Aprovado por quem coda cansado
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>Feito com 🛁 e 🧼 para a <strong>Imersão <a href="https://www.alura.com.br/" target="_blank">Alura</a> + <a href="https://gemini.google/br/subscriptions/?hl=pt-BR" target="_blank">Google</a></strong>.</p>
+            <p class="disclaimer">⚠️ Aviso: O ZenDuck é uma ferramenta educativa de bem-estar. Ele não substitui terapia profissional.</p>
+        </div>
+    </footer>
+
+    
+    <button id="btn-musica">🎵 Música</button>
+
+    <button id="btn-espuma" onclick="soltarBolhasExtras()">🫧 +Espuma</button>
+
+
+    <script src="dados.js"></script>
+    <script src="app.js"></script>
+
+    <audio id="som-ambiente" loop>
+        <source src="musica.mp3" type="audio/mp3">
+    </audio>
+
+    <audio id="som-bolhas">
+        <source src="bolhas.mp3" type="audio/mp3">
+    </audio>
+
+    <audio id="som-quack">
+        <source src="quack.mp3" type="audio/mp3">
+    </audio>
+
+</body> 
+</html>
+</body>
+</html>

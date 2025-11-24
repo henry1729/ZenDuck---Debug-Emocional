@@ -1,0 +1,666 @@
+/* TEMA: MINDWASH (Água, Pato & Premium Spa) 🛁 */
+
+:root {
+    /* Paleta do Usuário */
+    --duck-yellow: #FAD648;
+    --bubble-blue: #A2D8E3;
+    --bath-aqua: #8FD8D8;
+    --soap-white: #C3E6EE;
+    --deep-lagoon: #2C7C85;
+    --ocean-slate: #385C6B;
+
+    /* NOVAS VARIÁVEIS PARA PADRONIZAR CORES DAS BOLHAS */
+--bolha-fundo-rgb: 120, 180, 200; /* Um azul médio (RGB de #78B4C8, mais escuro) */
+    --bolha-borda-rgb: 150, 210, 220; /* Borda ligeiramente mais clara */
+    
+    /* Efeitos */
+    --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+    --wet-shadow: 0 8px 32px 0 rgba(143, 216, 216, 0.3);
+}
+
+body {
+    background: linear-gradient(180deg, var(--soap-white) 0%, var(--bubble-blue) 100%);
+    color: var(--ocean-slate);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased; /* Deixa a fonte mais nítida */
+    
+    /* ADICIONE ESTA LINHA AQUI: */
+    overflow-anchor: none; /* Impede pulos automáticos de rolagem */
+}
+
+/* --- Animação das Bolhas de Fundo --- */
+.bubbles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Fica atrás de tudo */
+    overflow: hidden;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -50px;
+    background: rgba(var(--bolha-fundo-rgb), 0.3);
+    border-radius: 50%;
+    border: 1px solid rgba(var(--bolha-borda-rgb), 0.3);
+    animation: floatUp 10s infinite linear;
+}
+
+/* Tamanhos e posições variadas para as bolhas */
+.bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 8s; }
+.bubble:nth-child(2) { width: 20px; height: 20px; left: 20%; animation-duration: 5s; animation-delay: 1s; }
+.bubble:nth-child(3) { width: 50px; height: 50px; left: 35%; animation-duration: 10s; animation-delay: 2s; }
+.bubble:nth-child(4) { width: 80px; height: 80px; left: 50%; animation-duration: 11s; animation-delay: 0s; }
+.bubble:nth-child(5) { width: 35px; height: 35px; left: 55%; animation-duration: 6s; animation-delay: 1s; }
+.bubble:nth-child(6) { width: 45px; height: 45px; left: 80%; animation-duration: 8s; animation-delay: 3s; }
+
+@keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* --- Cabeçalho e Pato --- */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.logo-area {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+    animation: boiar 3s infinite ease-in-out;
+}
+
+.pato-img {
+    width: 150px; /* Tamanho ideal */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 10px 15px rgba(44, 124, 133, 0.3)); /* Sombra suave combinando com o tema */
+    animation: boiar 4s infinite ease-in-out; /* Mantém ele boiando */
+}
+
+@keyframes boiar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+h1, h2, h3 {
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--deep-lagoon);
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 3rem;
+    color: var(--deep-lagoon);
+    margin: 0;
+    letter-spacing: -1px;
+    /* Efeito de texto molhado/brilhante */
+    background: linear-gradient(45deg, var(--deep-lagoon), var(--bath-aqua));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    font-weight: 400;
+    font-size: 1.1rem;
+    color: var(--ocean-slate);
+    margin-top: 5px;
+    line-height: 1.7; /* Espaço entre linhas maior para leitura calma */
+    color: var(--ocean-slate); /* Mantido o --ocean-slate que é mais escuro que --text-secondary (inexistente) */
+}
+
+/* --- Busca (Glassmorphism) --- */
+.search-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.search-box {
+    background: rgba(255, 255, 255, 0.65); /* Vidro */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 8px;
+    border-radius: 50px;
+    border: var(--glass-border);
+    box-shadow: var(--wet-shadow);
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    transition: 0.3s;
+}
+
+.search-box:hover {
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 10px 40px 0 rgba(143, 216, 216, 0.5);
+}
+
+input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 15px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    color: var(--ocean-slate);
+    outline: none;
+}
+
+button {
+    background: linear-gradient(135deg, var(--bath-aqua) 0%, var(--deep-lagoon) 100%);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(44, 124, 133, 0.3);
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* --- Resultados (Cards com Espuma) --- */
+.resultados {
+    width: 100%;
+    max-width: 700px; /* Ou 650px, como estava */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 0 auto; /* Isso garante que a resposta fique no meio da tela */
+}
+
+.item-resultado {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 0; /* Padding zero para a espuma funcionar */
+    border: var(--glass-border);
+    box-shadow: var(--wet-shadow);
+    overflow: hidden; /* Para a espuma não vazar */
+    transition: transform 0.2s;
+}
+
+.item-resultado:hover {
+    transform: translateY(-5px);
+}
+
+/* A "Espuma" no topo do card */
+.espuma-top {
+    background: linear-gradient(180deg, #FFFFFF 30%, var(--bubble-blue) 100%);
+    height: 15px;
+    width: 100%;
+    opacity: 0.7;
+}
+
+.conteudo-card {
+    padding: 25px;
+}
+
+.item-resultado h2 {
+    color: var(--deep-lagoon);
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Tags estilo pílula */
+.tags {
+    display: inline-block;
+    background-color: var(--bubble-blue);
+    color: var(--deep-lagoon);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.descricao-meta {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Área Técnica (Código/Terminal) */
+.area-dev {
+    /* Cor de fundo ligeiramente mais escura para contraste */
+    background-color: var(--soap-white); 
+    
+    /* Borda lateral mantida para o estilo de log */
+    border-left: 4px solid var(--bath-aqua); 
+    
+    padding: 15px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.99rem;
+    color: var(--ocean-slate);
+    line-height: 1.5;
+    
+    /* NOVIDADES: Sombra e Arredondamento */
+    border-radius: 0 10px 10px 0; /* Arredondamento nos cantos que não tem a borda */
+    
+    /* Sombra suave com a cor de água, como o restante do site */
+    box-shadow: 0 4px 10px rgba(143, 216, 216, 0.3); 
+    
+    transition: box-shadow 0.3s ease; /* Adiciona uma transição suave */
+    margin-bottom: 25px; /* Você pode ajustar este valor (20px, 30px, etc.) */
+}
+
+/* Opcional: Adicione um destaque ao passar o mouse */
+.area-dev:hover {
+    box-shadow: 0 8px 15px rgba(143, 216, 216, 0.6); 
+    }
+
+footer {
+    margin-top: 50px;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* --- Tags de Sugestão (Embaixo da busca) --- */
+.sugestoes {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 600px;
+}
+
+.tag-sugestao {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.2s;
+    color: var(--deep-lagoon);
+    font-weight: 600;
+}
+
+.tag-sugestao:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(44, 124, 133, 0.2);
+}
+
+/* --- Seção Sobre (O Card do Pato) --- */
+.sobre-container {
+    margin-top: 60px;
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;  /* Centraliza a esquerda */
+    margin-right: auto; /* Centraliza a direita */
+    /* Ou o atalho: margin: 60px auto; */
+}
+
+.card-sobre {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    border: var(--glass-border);
+    box-shadow: var(--wet-shadow);
+}
+
+.icone-sobre {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.card-sobre h3 {
+    color: var(--deep-lagoon);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.card-sobre p {
+    line-height: 1.8;
+    color: var(--ocean-slate);
+}
+
+/* --- Seção Fontes --- */
+.fontes-container {
+    margin-top: 50px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.titulo-fontes {
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.lista-fontes {
+    font-weight: 700;
+    color: var(--deep-lagoon);
+}
+
+/* --- Footer Ajustado --- */
+footer {
+    margin-top: 60px;
+    text-align: center;
+    padding-bottom: 30px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    width: 100%;
+}
+
+.footer-content {
+    padding-top: 20px;
+}
+
+.disclaimer {
+    font-size: 0.75rem;
+    margin-top: 10px;
+    opacity: 0.8;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Botão Flutuante */
+#btn-espuma {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%); /* Amarelo Pato */
+    color: white;
+    font-size: 1rem;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.2s;
+    border: 2px solid white;
+}
+
+#btn-espuma:hover {
+    transform: scale(1.1) rotate(-5deg);
+    cursor: pointer;
+}
+
+/* Bolhas Extras (criadas pelo JS) */
+.bolha-extra {
+    position: fixed;
+    bottom: -50px;
+    background: rgba(var(--bolha-fundo-rgb), 0.3);
+    border: 1px solid rgba(var(--bolha-borda-rgb), 0.3);
+    border-radius: 50%;
+    pointer-events: none; /* Deixa clicar através delas */
+    z-index: 999;
+    animation: subirSumir 4s linear forwards;
+}
+
+@keyframes subirSumir {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* --- Seção Primeiros Socorros --- */
+.emergencia-container {
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.titulo-secao {
+    color: var(--deep-lagoon);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    opacity: 0.8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cards-emergencia {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card-sos {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 20px;
+    width: 200px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.card-sos:hover {
+    background: white;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(143, 216, 216, 0.4);
+}
+
+.emoji-sos {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.card-sos h3 {
+    color: var(--deep-lagoon);
+    font-size: 1rem;
+    margin: 0 0 5px 0;
+}
+
+.card-sos p {
+    font-size: 0.8rem;
+    color: var(--ocean-slate);
+    margin: 0;
+    line-height: 1.4;
+}
+/* Ajustes para Celular */
+@media (max-width: 600px) {
+    .logo-area { font-size: 3rem; } /* Pato menor */
+    h1 { font-size: 2rem; }
+    
+    .search-box {
+        flex-direction: column; /* Botão vai para baixo do input */
+    }
+    
+    input { width: 100%; }
+    
+    button { width: 100%; margin-top: 10px; }
+    
+    .cards-emergencia {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #btn-espuma {
+        bottom: 10px;
+        right: 10px;
+        padding: 10px 15px;
+        font-size: 0.8rem;
+    }
+}
+
+/* --- Seção Manifesto --- */
+.manifesto-container {
+    width: 100%;
+    max-width: 700px;
+    margin: 60px auto; /* O 'auto' aqui faz a mágica da centralização */
+    text-align: center;
+}
+
+.manifesto-box {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    border: var(--glass-border);
+    box-shadow: var(--wet-shadow);
+}
+
+/* Efeito decorativo de brilho 
+.manifesto-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 60%);
+    opacity: 0.5;
+    pointer-events: none;
+}
+*/
+.manifesto-box h2 {
+    color: var(--deep-lagoon);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.frase-impacto {
+    font-size: 1.2rem;
+    color: var(--ocean-slate);
+    margin-bottom: 20px;
+}
+
+.texto-missao {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto 30px;
+}
+
+.selo-dev {
+    display: inline-block;
+    background: var(--duck-yellow);
+    color: var(--deep-lagoon);
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border: 2px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Reserva espaço para evitar pulos bruscos */
+#resultado-baixo {
+    min-height: 50px; /* Garante que a área exista */
+    transition: all 0.3s ease; /* Suaviza se crescer */
+}
+
+/* --- CORREÇÃO DEFINITIVA DO FUNDO DE INPUT / AUTOFILL --- */
+input {
+    /* Garante que o input em si herde o arredondamento e não tenha seu próprio fundo */
+    border-radius: 40px; /* Adapte ao raio que você está usando */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+    
+    /* Aumenta a prioridade do "fundo de vidro" com !important */
+    -webkit-box-shadow: 0 0 0px 1000px rgba(255, 255, 255, 0.65) inset !important; 
+    
+    /* Garante que o texto permaneça com a cor correta */
+    -webkit-text-fill-color: var(--ocean-slate) !important;
+    
+    /* Garante que o input não tenha sua própria cor de fundo sólida */
+    background-color: transparent !important; 
+    
+    /* Força o input a herdar o border-radius do container pai (search-box) */
+    border-radius: inherit !important; 
+    
+    /* Evita transições indesejadas */
+    transition: background-color 0s ease-in-out 0s;
+}
+
+/* --- ESTILIZAÇÃO GERAL DE LINKS DENTRO DE SEÇÕES E RODAPÉ --- */
+
+/* Regra geral para links (principalmente os do footer e fontes) */
+.fontes-container a,
+footer a {
+    /* Cor de texto: Usar seu tom de água mais escuro (Deep Lagoon) ou um tom vibrante (Bath Aqua) */
+    color: var(--deep-lagoon); 
+    
+    /* Remove o sublinhado padrão */
+    text-decoration: none; 
+    
+    /* Adiciona transição para o hover ser suave */
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Efeito ao passar o mouse: Dar um toque de brilho da água ou um destaque sutil */
+.fontes-container a:hover,
+footer a:hover {
+    color: var(--bath-aqua); /* Ou qualquer cor mais clara para o efeito hover */
+    opacity: 1;
+}
+
+/* --- POSICIONAMENTO FIXO PARA O BOTÃO MÚSICA (Canto Inferior Esquerdo) --- */
+#btn-musica {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* POSICIONA NA ESQUERDA, ESPELHANDO O BOTÃO DE ESPUMA */
+    
+    /* Copiar estilos visuais de #btn-espuma para consistência */
+    background: linear-gradient(135deg, var(--bath-aqua) 0%, var(--deep-lagoon) 100%); /* Um gradiente bonito para a música */
+    color: white;
+    font-size: 1rem;
+    padding: 15px 25px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: transform 0.2s;
+    border: 2px solid white;
+}
+
+/* Efeito Hover para a Música */
+#btn-musica:hover {
+    transform: scale(1.1) rotate(5deg); /* Efeito de rotação leve para a música */
+    cursor: pointer;
+}
+
+/* Ajuste o botão flutuante existente (#btn-espuma) para usar um estilo diferente, 
+   se você quiser diferenciar o visual de ambos: */
+/*
+#btn-espuma {
+    background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%); 
+    ...
+}
+*/
