@@ -1,4 +1,4 @@
-# 👑 ZenDuck: O Debugger Emocional Definitivo para Devs 🦆
+# 🦆 ZenDuck: O Debugger Emocional Definitivo para Devs 🫧
 
 ## Visão Geral do Projeto
 
