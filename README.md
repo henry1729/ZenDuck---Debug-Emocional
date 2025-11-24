@@ -1,11 +1,39 @@
-🛀 ZenDuck: Systemctl Isolate Rescue.target Emocional 🦆🚀 OVERVIEW: SAÚDE MENTAL É REQUISITO DE SISTEMAO ZenDuck é uma Single Page Application (SPA) desenvolvida para a Imersão Front-end da Alura + Google. Nosso objetivo: Tratar a Saúde Mental como um Requisito de Sistema.A aplicação traduz sintomas de burnout, ansiedade e sobrecarga em metáforas de software (como "Logs de Erro") e oferece "Scripts de Correção" imediatos, baseados em neurociência.🎯 debug.statusMetáforaDescriçãoStatusSystem OverclockingBurnout, ansiedade e sobrecarga mental.[FAILURE]Debug PrincipalTraduzir sintomas em "Logs de Erro" e oferecer "Scripts de Correção" (Dicas do Pato).[SUCCESS]AmbienteDesign Glassmorphism (Efeito de Vidro Fosco) sobre fundo Mindwash (Tema Spa & Água).[ONLINE]💻 CARACTERÍSTICAS TÉCNICAS E UX1. audio.config.js (Imersão Sonora)Integração de áudio em três camadas para uma experiência imersiva, com volume refinado para escuta com fones de ouvido:JavaScript// Níveis de volume na escala 0.0 (mudo) a 1.0 (máx)
-somAmbiente.volume = 0.05; // Música de fundo sutil
-somQuack.volume    = 0.3;  // Alerta perceptível (Erro 404)
-somBolhas.volume   = 0.4;  // Feedback de interação (+Espuma)
-Controle UX: O botão Música é fixo (position: fixed) e flutuante, permitindo ao usuário ligar/desligar a trilha sonora a qualquer momento.2. search.protocol (Lógica de Busca)O módulo de busca simula uma chamada a API, filtrando o conteúdo pré-gerado em dados.js (JSON-in-JS) via JavaScript puro:Prioridade: A busca utiliza priorização de resultados (listaOuro, listaPrata, etc.) para entregar a dica mais relevante instantaneamente.Usabilidade: Implementação de listener para acionar a busca com a tecla ENTER no campo de input.3. interface.css (Visual Polido)O CSS foca na coesão visual e na usabilidade:Uso de var(--css-variables) para todas as cores.Refinamentos visuais em styles.css para eliminar a borda nos elementos de Manifesto e corrigir o bug do navegador ao colar texto (-webkit-autofill).Correção de links de fontes externas e atualização de ícones (emojis) para maior coerência visual.🚀 EXECUÇÃOO ZenDuck é um projeto Front-end Estático.Bash# 1. Clone o repositório
-git clone https://github.com/henry1729/[SeuRepo].git
+# 👑 ZenDuck: O Debugger Emocional Definitivo para Devs 🦆
 
-# 2. Acesse a pasta e inicie o Servidor Local
-# Use o Live Server do VS Code ou abra o arquivo diretamente
-open index.html 
-👨‍💻 AutoriaProjeto desenvolvido por Henry (@henry1729) como parte da Imersão Front-end Alura + Google.Este projeto demonstra a importância de integrar as soft skills (saúde mental) diretamente nas hard skills (desenvolvimento de software).
+## Visão Geral do Projeto
+
+O **ZenDuck** é uma aplicação web de alto impacto, desenvolvida para a Imersão Front-end da Alura + Google. Nosso foco é tratar a **Saúde Mental como um Requisito de Sistema vital**.
+
+A aplicação traduz sintomas de burnout, ansiedade e sobrecarga mental em comandos de programação (como "Logs de Erro") e entrega soluções práticas e imediatas baseadas em neurociência.
+
+---
+
+### ⭐ Destaques de Design e UX
+
+* **Design Imersivo:** Apresenta um design com **Efeito de Vidro Fosco** sobre um **Tema Spa & Água**, criando uma sensação imediata de "limpeza de cache" mental.
+* **Imersão Sonora:** Possui um sistema de áudio refinado, com música ambiente sutil e sons de feedback temático (bolhas, quack de erro) com volume controlado em JavaScript.
+* **Acessibilidade:** Botões de controle (`Música` e `+Espuma`) são **fixos e flutuantes** para fácil acesso e controle total da experiência.
+* **UX de Busca:** Suporte à tecla `ENTER` e correções de *bugs* de navegador para um fluxo de trabalho profissional.
+
+---
+
+### 🛠️ Estrutura Técnica e Lógica
+
+* **Lógica Inteligente:** A busca é otimizada em JavaScript puro, simulando uma API e utilizando uma lógica de priorização de resultados (`listaOuro`, `listaPrata`, etc.).
+* **Controle de Áudio:** O volume é ajustado via JavaScript (`somAmbiente.volume = 0.05`, etc.) para garantir que o som seja sutil e não invasivo.
+* **Metáfora Central:** O comando **`Systemctl Isolate Rescue.target`** é usado para o Burnout, e **`Clean_Cache_SPA()`** para Ansiedade/Caos, falando diretamente a linguagem do desenvolvedor.
+
+---
+
+## 🚀 Como Executar
+
+O ZenDuck é um projeto **Front-end estático** (HTML, CSS, JavaScript).
+
+1.  Clone o repositório.
+2.  Abra o arquivo `index.html` no seu navegador.
+
+***
+
+### 👨‍💻 Autoria
+
+Projeto desenvolvido por **Henry** ([@henry1729](https://github.com/henry1729)) para a Imersão Front-end Alura + Google.
